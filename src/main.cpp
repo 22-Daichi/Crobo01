@@ -4,14 +4,14 @@
 #include "MotorDriver.hpp"
 #include "Input.hpp"
 
-const int motorR1 = 5;
-const int motorR2 = 18;
+const int motorR1 = 5;  // AIN1
+const int motorR2 = 18; // AIN2
 
-const int motorL1 = 25;
-const int motorL2 = 33;
+const int motorL1 = 25; // BIN1
+const int motorL2 = 33; // BIB2
 
-const int motorRp = 19;
-const int motorLp = 32;
+const int motorRp = 19; // PWMA
+const int motorLp = 32; // PWMB
 
 const int pwmChannelRight = 0;
 const int pwmChannelLeft = 1;
