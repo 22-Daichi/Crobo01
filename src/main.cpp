@@ -1,3 +1,5 @@
+// クローラー用のプログラムです
+
 #include <Arduino.h>
 #include <Ps3Controller.h>
 
@@ -13,34 +15,17 @@ const int motorL2 = 33; // BIB2
 const int motorRp = 19; // PWMA
 const int motorLp = 32; // PWMB
 
-const int pwmChannelRight = 0;
-const int pwmChannelLeft = 1;
+const int pwmChannelRight = 0; // 右のモーター用のpwmチャンネル
+const int pwmChannelLeft = 1;  // 右のモーター用のpwmチャンネル
 
-const int pwmFrequency = 12800;
+const int pwmFrequency = 12800; // 　pwmの周波数
 
-MotorDrive motorRight = {
-    motorR1,
-    motorR2,
-    motorRp,
-    pwmChannelRight,
-    pwmFrequency,
-};
-
-MotorDrive motorLeft = {
-    motorL1,
-    motorL2,
-    motorLp,
-    pwmChannelLeft,
-    pwmFrequency,
-};
+// ここに構造体の宣言など
 
 void setup()
 {
-  Ps3.begin("2c:2c:1f:d0:04:be"); // 黒いコントローラーのアドレス
-  motorRight.setup();
-  motorLeft.setup();
-  motorRight.neutral();
-  motorLeft.neutral();
+  Ps3.begin("2c:2c:1f:d0:04:be"); // 黒いコントローラーと接続するためのおまじない
+  // ここに必要な処理を書く。pinModeなどなど
 }
 
 void loop()
@@ -48,32 +33,26 @@ void loop()
   Input input = getInput();
   if (input.up)
   {
-    motorRight.driveForward(200);
-    motorLeft.driveForward(200);
+    // 十字キーの上を押された時の処理をここに書く
   }
   else if (input.down)
   {
-    motorRight.driveBackward(200);
-    motorLeft.driveBackward(200);
+    // 十字キーの下を押された時の処理をここに書く
   }
   else if (input.circle)
   {
-    motorRight.driveBackward(200);
-    motorLeft.driveForward(200);
+    // 〇ボタンを押された時の処理をここに書く
   }
   else if (input.cross)
   {
-    motorRight.stop();
-    motorLeft.stop();
+    // ×ボタンを押された時の処理をここに書く
   }
   else if (input.square)
   {
-    motorRight.driveForward(200);
-    motorLeft.driveBackward(200);
+    // □ボタンを押された時の処理をここに書く
   }
   else
   {
-    motorRight.stop();
-    motorLeft.stop();
+    // 何も押してない時の処理をここに書く
   }
 }
