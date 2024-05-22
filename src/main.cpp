@@ -36,7 +36,7 @@ MotorDrive motorLeft = {
 
 void setup()
 {
-  Ps3.begin("2c:2c:1f:d0:04:be"); // 黒いコントローラー
+  Ps3.begin("2c:2c:1f:d0:04:be"); // 黒いコントローラーのアドレス
   motorRight.setup();
   motorLeft.setup();
   motorRight.neutral();
